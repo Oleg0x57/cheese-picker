@@ -1,0 +1,10 @@
+<h2>product catalog</h2>
+<ul>
+  <li *ngFor="let product of products" [class.selected]="product === selectedProduct" (click)="onSelect(product)">
+    <span>{{product.title}}</span>
+    <span>{{product.price}}</span>
+  </li>
+</ul>
+<div *ngIf="selectedProduct">
+  <h3>Your choise: {{selectedProduct.title}}</h3>
+</div>
