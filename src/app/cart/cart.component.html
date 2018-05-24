@@ -1,7 +1,14 @@
-<h3>My Cart</h3>
+<!--<h3>My Cart</h3>
 <ul>
   <li *ngFor="let product of products">
     <span>{{product.title}}</span>
     <span>{{product.price}}</span>
   </li>
-</ul>
+</ul>-->
+<mat-list>
+  <h3 mat-subheader>Cart</h3>
+  <mat-list-item *ngFor="let product of products">
+    <span>{{product.title}}</span>
+    <span>{{product.price}}</span>
+  </mat-list-item>
+</mat-list>
