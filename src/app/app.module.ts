@@ -11,11 +11,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 
 @NgModule({
@@ -27,6 +30,7 @@ import { CartComponent } from './cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatSortModule,
@@ -37,7 +41,9 @@ import { CartComponent } from './cart/cart.component';
     MatMenuModule,
     MatToolbarModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
