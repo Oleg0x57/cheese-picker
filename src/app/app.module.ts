@@ -20,18 +20,33 @@ import { ProductsComponent } from './products/products.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 import { CartComponent } from './cart/cart.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { OrderComponent } from './components/order/order.component';
+import { ProductSearchComponent } from './components/product-search/product-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    CartComponent
+    CartComponent,
+    ProductsListComponent,
+    ProductDetailComponent,
+    OrderComponent,
+    ProductSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     BrowserAnimationsModule,
     MatTableModule,
     MatSortModule,

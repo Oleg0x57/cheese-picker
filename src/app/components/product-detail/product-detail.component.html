@@ -1,0 +1,16 @@
+<div *ngIf="product">
+  <form>
+    <div class="form-group">
+      <label>Title:
+        <input class="form-control" [(ngModel)]="product.title" placeholder="title" name="title">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Price:
+        <input class="form-control" [(ngModel)]="product.price" placeholder="price" name="price">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default" (click)="save()">Save</button>
+    <button class="btn btn-default" (click)="goBack()">Go back</button>
+  </form>
+</div>
