@@ -1,22 +1,35 @@
-<div class="row">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th> id </th>
-        <th> title </th>
-        <th> price </th>
-        <th> quantity </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td> {{product.id}} </td>
-        <td> {{product.title}} </td>
-        <td> {{product.price}} </td>
-        <td>
-          <input name="quantity" />
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h2>Order</h2>
+<h3>
+  <i>FormControl in a FormGroup</i>
+</h3>
+<form [formGroup]="orderForm">
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+  <button type="button" class="btn btn-success" (click)="addRow()">Add item</button>
+  <div formArrayName="rows" class="well well-lg">
+    <div *ngFor="let row of rows.controls; let i=index" [formGroupName]=i>
+      <h4>item {{i + 1}}</h4>
+      <button type="button" class="btn btn-danger" (click)="removeRow()">
+        <i class="glyphicon glyphicon-trash"></i>Delete</button>
+      <div class="form-group">
+        <label class="center-block">Product:
+          <select class="form-control" formControlName="product">
+            <option *ngFor="let product of products" [value]="product.id">{{product.title}}</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="center-block">Quantity:
+          <input class="form-control" formControlName="quantity">
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+
+<p>Form value: {{ orderForm.value | json }}</p>
+<p>Form value: {{ orderForm.status | json }}</p>
+<p>Name value: {{ orderForm.get('name').value }}</p>
