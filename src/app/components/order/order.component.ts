@@ -3,7 +3,7 @@ import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PRODUCTS } from '../../mock-products';
 import { OrderItem } from '../../models/order-item';
 import { Order } from '../../models/order';
-import { OrderService } from '../../order-service.service';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-order',

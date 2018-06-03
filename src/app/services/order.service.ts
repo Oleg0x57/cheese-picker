@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Order } from './models/order';
+import { Order } from '../models/order';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class OrderService {
         { product: 2, quantity: 2 }
       ]
     });
+  }
+
+  addToOrder(product: Product) {
+
   }
 }

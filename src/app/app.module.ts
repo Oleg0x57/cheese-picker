@@ -13,7 +13,8 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { OrderComponent } from './components/order/order.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
-import { OrderService } from './order-service.service';
+import { OrderService } from './services/order.service';
+import { CatalogComponent } from './components/catalog/catalog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OrderService } from './order-service.service';
     ProductsListComponent,
     ProductDetailComponent,
     OrderComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,

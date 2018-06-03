@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Product } from './product';
+import { Product } from '../models/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { PRODUCTS } from './mock-products';
+import { PRODUCTS } from '../mock-products';
 import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
