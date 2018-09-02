@@ -15,7 +15,7 @@
       <tbody>
         <tr *ngFor="let order of orders | async" (click)="select(order)">
           <td>{{order.id}}</td>
-          <td>{{order.name}}</td>
+          <td>{{order.username}}</td>
           <td>{{order.date}}</td>
         </tr>
       </tbody>

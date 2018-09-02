@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { finalize, tap } from 'rxjs/operators';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Order } from '../order';
+import { Order, OrderRow } from '../order';
 import { RepositoryService } from '../repository.service';
 import { Product } from '../product';
 
@@ -13,45 +14,52 @@ export class OrderFormComponent implements OnInit, OnChanges {
 
   @Input() order: Order;
   orderForm: FormGroup;
+  productValues: Product[];
 
   constructor(private fb: FormBuilder, private repository: RepositoryService) {
+    this.getProductValues();
     this.createForm();
   }
 
-  get products(): FormArray {
-    return this.orderForm.get('products') as FormArray;
+  get rows(): FormArray {
+    return this.orderForm.get('rows') as FormArray;
   }
 
   ngOnInit() {
+    this.getProductValues();
   }
 
   ngOnChanges() {
     this.rebuildForm();
   }
 
+  getProductValues() {
+    this.repository.getProducts().subscribe(products => this.productValues = products);
+  }
+
   createForm() {
     this.orderForm = this.fb.group({
       id: ['', Validators.required],
       username: ['', Validators.required],
-      products: this.fb.array([])
+      rows: this.fb.array([])
     });
   }
   rebuildForm() {
     this.orderForm.reset({
       id: this.order.id,
-      username: this.order.name,
+      username: this.order.username,
     });
-    this.setProducts(this.order.products);
+    this.setRows(this.order.rows);
   }
 
-  setProducts(products: Product[]) {
-    const productFG = products.map(product => this.fb.group(product));
-    const productFGsArr = this.fb.array(productFG);
-    this.orderForm.setControl('products', productFGsArr);
+  setRows(products: OrderRow[]) {
+    const rowFG = products.map(row => this.fb.group(row));
+    const rowFGsArr = this.fb.array(rowFG);
+    this.orderForm.setControl('rows', rowFGsArr);
   }
 
-  addProduct() {
-    this.products.push(this.fb.group(new Product()));
+  addRow() {
+    this.rows.push(this.fb.group(new OrderRow()));
   }
 
   onSubmit() {
@@ -63,19 +71,17 @@ export class OrderFormComponent implements OnInit, OnChanges {
   prepareSaveGroup() {
     const orderModel = this.orderForm.value;
 
-    const productsDeepCopy: Product[] = orderModel.products.map(
-      (product: Product) => Object.assign({}, product)
+    const rowsDeepCopy: OrderRow[] = orderModel.rows.map(
+      (row: OrderRow) => Object.assign({}, row)
     );
 
     const saveOrder: Order = {
       id: orderModel.id,
       date: this.order.date,
-      name: orderModel.username,
-      products: productsDeepCopy,
+      username: orderModel.username,
+      rows: rowsDeepCopy,
     }
-
     return saveOrder;
-
   }
 
 }

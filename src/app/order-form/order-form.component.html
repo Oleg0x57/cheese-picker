@@ -7,13 +7,18 @@
       <input class="form-control" formControlName="username" />
     </label>
   </div>
-  <div formArrayName="products" class="well well-lg">
-    <button (click)="addProduct()" type="button">Add a product</button>
-    <div *ngFor="let product of products.controls; let i=index" [formGroupName]="i" class="form-group">
+  <div formArrayName="rows" class="well well-lg">
+    <button (click)="addRow()" type="button">Add a product</button>
+    <div *ngFor="let row of rows.controls; let i=index" [formGroupName]="i" class="form-group">
       <h4>Product {{i+1}}</h4>
-      <label class="center-block">Title:
-        <input class="form-control" formControlName="name" />
-      </label>
+      <div class="form-group">
+        <label>Product:
+          <select formControlName="productId">
+            <option disabled value="null">выберите</option>
+            <option *ngFor="let productValue of productValues" [value]="productValue.id">{{productValue.name}}({{productValue.price}})</option>
+          </select>
+        </label>
+      </div>
       <label class="center-block">Quantity:
         <input class="form-control" formControlName="quantity" />
       </label>
@@ -23,3 +28,4 @@
 </form>
 <p>Form value: {{ orderForm.value | json }}</p>
 <p>Form status: {{ orderForm.status | json }}</p>
+<p>Form productValues: {{ productValues | json }}</p>

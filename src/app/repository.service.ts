@@ -55,7 +55,7 @@ export class RepositoryService {
   }
 
   getProducts(): Observable<Product[]> {
-    return of(JSON.parse(localStorage.getItem('products'))).pipe(delay(500));
+    return of(JSON.parse(localStorage.getItem('products'))).pipe();
   }
 
   saveProduct(product: Product): Observable<Product> {

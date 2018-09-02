@@ -29,12 +29,14 @@ export class ProductFormComponent implements OnInit {
     this.productForm = this.fb.group({
       id: ['', Validators.required],
       name: ['', Validators.required],
+      price: ['', Validators.required],
     });
   }
   rebuildForm() {
     this.productForm.reset({
       id: this.product.id,
-      username: this.product.name,
+      name: this.product.name,
+      price: this.product.price,
     });
   }
 
@@ -49,7 +51,7 @@ export class ProductFormComponent implements OnInit {
     const saveProduct: Product = {
       id: productModel.id,
       name: productModel.name,
-      quantity: null
+      price: productModel.price,
     }
     return saveProduct;
   }

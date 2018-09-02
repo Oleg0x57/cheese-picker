@@ -1,7 +1,7 @@
 export class Product {
     id: number = null;
     name: string = '';
-    quantity: string = '';
+    price: number = 0;
 }
 
 export class User {

@@ -1,12 +1,15 @@
-import { Product } from "./product";
+export class OrderRow {
+    productId: number = null;
+    quantity: number = 0;
+}
 
 export class Order {
     id: number = null;
-    name: string = null;
+    username: string = null;
     date: Date = null;
-    products: Product[] = [];
-    constructor(name: string = 'default'){
-        this.name = name;
+    rows: OrderRow[] = [];
+    constructor(name: string = 'default') {
+        this.username = name;
         this.date = new Date();
     }
 }
