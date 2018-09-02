@@ -1,0 +1,25 @@
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="center-block">ID:
+      <input class="form-control" formControlName="id" />
+    </label>
+    <label class="center-block">User:
+      <input class="form-control" formControlName="username" />
+    </label>
+  </div>
+  <div formArrayName="products" class="well well-lg">
+    <button (click)="addProduct()" type="button">Add a product</button>
+    <div *ngFor="let product of products.controls; let i=index" [formGroupName]="i" class="form-group">
+      <h4>Product {{i+1}}</h4>
+      <label class="center-block">Title:
+        <input class="form-control" formControlName="name" />
+      </label>
+      <label class="center-block">Quantity:
+        <input class="form-control" formControlName="quantity" />
+      </label>
+    </div>
+  </div>
+  <button type="submit" [disabled]="orderForm.pristine" class="btn btn-success">Save</button>
+</form>
+<p>Form value: {{ orderForm.value | json }}</p>
+<p>Form status: {{ orderForm.status | json }}</p>
