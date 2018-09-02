@@ -8,6 +8,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { RepositoryService } from './repository.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductFormComponent } from './product-form/product-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [RepositoryService],
   bootstrap: [AppComponent]
