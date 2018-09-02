@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
+=======
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.sidebar {
+    position: fixed !important;
+    top: 52px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+}
+>>>>>>> dede238bdd0650e14c41426d15cfc985aed2fb7d
