@@ -1,0 +1,13 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="center-block">ID:
+      <input class="form-control" formControlName="id" />
+    </label>
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name" />
+    </label>
+  </div>
+  <button type="submit" [disabled]="productForm.pristine" class="btn btn-success">Save</button>
+</form>
+<p>Form value: {{ productForm.value | json }}</p>
+<p>Form status: {{ productForm.status | json }}</p>

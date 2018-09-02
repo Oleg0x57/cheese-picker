@@ -1,19 +1,15 @@
 <nav class="navbar navbar-inverse">
-  <p class="navbar-text">Or
-    <button class="btn btn-default navbar-btn" (click)="add()">add</button>
-    a new order; also you can
-    <a class="btn btn-default navbar-btn" [href]="exportLink" download="data.json">Export</a> data
-  </p>
 </nav>
 <div class="container">
   <div class="col-md-6">
+    <button class="btn btn-default navbar-btn" (click)="add()">add</button>
+    <a class="btn btn-default navbar-btn" [href]="exportLink" download="data.json">Export</a>
     <table class="table table-condensed">
       <thead>
         <tr>
           <th>#</th>
           <th>user</th>
           <th>date</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
