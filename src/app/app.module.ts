@@ -9,6 +9,7 @@ import { RepositoryService } from './repository.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditableCellComponent } from './editable-cell/editable-cell.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
     OrderFormComponent,
     OrderListComponent,
     ProductListComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    EditableCellComponent
   ],
   imports: [
     BrowserModule,

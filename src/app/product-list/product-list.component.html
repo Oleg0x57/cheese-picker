@@ -12,8 +12,12 @@
       <tbody>
         <tr *ngFor="let product of products | async" (click)="select(product)">
           <td>{{product.id}}</td>
-          <td>{{product.name}}</td>
-          <td>{{product.price}}</td>
+          <td>
+            <app-editable-cell [cellValue]="product.name" [isEdit]="false" (edited)="setProductName($event, product)"></app-editable-cell>
+          </td>
+          <td>
+            <app-editable-cell [cellValue]="product.price" [isEdit]="false" (edited)="setProductPrice($event, product)"></app-editable-cell>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -21,4 +25,5 @@
   <div class="col-md-6" *ngIf="selectedProduct">
     <app-product-form [product]="selectedProduct"></app-product-form>
   </div>
+  {{products | json}}
 </div>

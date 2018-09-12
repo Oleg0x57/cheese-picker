@@ -1,0 +1,4 @@
+<div (click)="edit()">
+    <span *ngIf="!isEdit">{{cellValue}}</span>
+    <input *ngIf="isEdit" [(ngModel)]="cellValue" autofocus>
+</div>

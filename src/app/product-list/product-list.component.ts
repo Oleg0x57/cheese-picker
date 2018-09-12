@@ -31,7 +31,17 @@ export class ProductListComponent implements OnInit {
   }
 
   select(product: Product) {
-    this.selectedProduct = product;
+    //this.selectedProduct = product;
+  }
+
+  setProductName(name, product: Product) {
+    product.name = name;
+    this.saveProduct(product);
+  }
+
+  setProductPrice(price, product: Product) {
+    product.price = price;
+    this.saveProduct(product);
   }
 
   saveProduct(product: Product) {
